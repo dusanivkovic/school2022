@@ -1,0 +1,24 @@
+/***************
+Mixin
+***************/
+@import "var.scss";
+@mixin flex($alignItems, $justify, $direction, $wrap) {
+    display: flex;
+    align-items: $alignItems;
+    justify-content: $justify;
+    flex-direction: $direction;
+    flex-wrap: $wrap;    
+}
+@mixin btn($bckImage, $bckImageHover){
+    width: fit-content;
+    padding: 8px 10px;
+    border-radius: 15px;
+    border: 0px;
+    background-image: $bckImage;//linear-gradient(290deg, #31d35c, #2bb7da);
+    color: white;
+    font-weight: 700;
+    transition: 0.4s ease;
+    &:hover{
+        background-image: $bckImageHover;//linear-gradient(110deg, #31d35c, #2bb7da);
+    }
+}

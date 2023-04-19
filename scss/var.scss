@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap');
+
+/**************
+GLOBAL
+**************/
+$fontFamily: "Public Sans", sans-serif;
+$font: normal normal normal 14px/1 FontAwesome;
+$fontSize: 16px;
+$margin:20px;
+$headingsFont: "Nunito Sans", sans-serif;
+ /*primary color*/
+$darkBlue: hsl(231, 13%, 11%);
+$limeGreen: hsl(136, 65%, 51%);
+$brightCyan: hsl(192, 70%, 51%);
+/*neutral*/
+$white: hsl(0, 0%, 100%);
+$grayishBlue: hsl(233, 8%, 62%);
+$lightGrayishBlue: hsl(220, 16%, 96%);
+$veryLightGray: hsl(0, 0%, 98%);
+$transition: 0.4s ease;

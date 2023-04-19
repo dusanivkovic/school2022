@@ -1,0 +1,57 @@
+/**************
+GLOBAL
+**************/
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap");
+/**************
+GLOBAL
+**************/
+/*primary color*/
+/*neutral*/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: hsl(233, 8%, 62%);
+}
+@media only screen and (max-width: 520px) {
+  body {
+    font-size: 90%;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: hsl(231, 13%, 11%);
+  margin: 16px 0;
+}
+
+p {
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  color: hsl(231, 13%, 11%);
+  transition: 0.4s ease;
+}
+
+a:hover {
+  color: hsl(192, 70%, 51%);
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}/*# sourceMappingURL=global.css.map */
