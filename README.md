@@ -1,0 +1,1 @@
+A custom WordPress theme is a unique design created specifically for a website using the WordPress platform. It allows website owners to create a website that is personalized to their brand and tailored to their specific needs. Custom themes are built from scratch or customized from existing themes to match the website owner's preferences and requirements.
