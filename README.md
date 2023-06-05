@@ -6,7 +6,6 @@ A custom WordPress theme is a unique design created specifically for a website u
 <li>Semantic elements</li>
 <li>Navbar navigation</li>
 <li>Footer navigation</li>
-<li>BEM metodology</li>
 <li>Meta data</li>
 <li>Geolocation</li>
 </ul>
