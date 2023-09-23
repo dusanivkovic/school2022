@@ -78,3 +78,18 @@ jQuery('.menu li > .sub-menu').parent().click(function() {
 jQuery(window).on('load', function() {
    inviewExample();
  });
+
+ $(function () {
+  var galleryItem = $('.gallery-item');
+
+  galleryItem.each(function(item) {
+    $(this).attr('data-aos', 'flip-left');
+    $(this).attr('data-aos-easing', 'ease-out-cubic');
+    $(this).attr('data-aos-duration', '2000');
+  })
+  setTimeout(() => {
+    AOS.init();
+}, 120);
+ })
+ AOS.init();
+

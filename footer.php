@@ -22,5 +22,8 @@
             <?php endif; ?>
             <?php wp_footer(); ?>
         </footer>
+        <!-- <script>
+            AOS.init();
+        </script> -->
     </body>
 </html>
