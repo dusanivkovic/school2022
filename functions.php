@@ -102,7 +102,7 @@ function wpdocs_custom_dropdown_class( $classes ) {
 add_filter( 'nav_menu_submenu_css_class', 'wpdocs_custom_dropdown_class' );
 // add styles
 function add_theme_styles() {
-    wp_enqueue_style('style-css', get_template_directory_uri() . '/style.css');
+    wp_enqueue_style('style-css', get_template_directory_uri() . '/assets/css/style.css');
     wp_enqueue_style('style-fontawesome', 'https://use.fontawesome.com/releases/v5.15.4/css/all.css');
     wp_enqueue_style('style-fontawesome-1', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
     wp_enqueue_style('style-carousel', get_template_directory_uri() . '/css/owl.carousel.min.css', array(), null, 'all');
@@ -112,14 +112,26 @@ function add_theme_styles() {
 add_action('wp_enqueue_scripts', 'add_theme_styles');
 //add script
 function add_theme_scripts_js() { 
+    wp_register_script('script-js', get_template_directory_uri( ) . '/js/script.js', array('jquery'), '', true);
     wp_enqueue_script('script-jquery-cdn-counter', 'https://code.jquery.com/jquery-1.11.1.min.js', array( 'jquery' ), '', true);
     wp_enqueue_script('script-waypoint-counter', get_template_directory_uri() . '/js/jquery.waypoints.min.js', array( 'jquery' ), '', true);
     wp_enqueue_script('script-inview-counter', get_template_directory_uri() . '/js/inview.min.js', array( 'jquery' ), '', true);
     wp_enqueue_script('script-jquery-cdn', 'https://code.jquery.com/jquery-3.6.3.min.js', array( 'jquery' ), '', true);
-    wp_enqueue_script('script-js', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '', true);
+    wp_enqueue_script('script-js');
     wp_enqueue_script('script-carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ), '', true);
     wp_enqueue_script('script-aos', 'https://unpkg.com/aos@next/dist/aos.js');
 }
+// add attribute type in <script>
+function add_type_attribute($tag, $handle, $src) {
+    // if not your script, do nothing and return original $tag
+    if ( 'script-js' === $handle ) {
+            // change the script tag by adding type="module" and return it.
+        $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
+        return $tag;
+    }
+    return $tag;
+}
+add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
 add_action('wp_enqueue_scripts', 'add_theme_scripts_js');
 //add active class in nav menu
 function special_nav_class($classes, $item){

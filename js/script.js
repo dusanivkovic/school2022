@@ -78,8 +78,8 @@ jQuery('.menu li > .sub-menu').parent().click(function() {
 jQuery(window).on('load', function() {
    inviewExample();
  });
-
- $(function () {
+// Adding AOS classes in gallery
+$(function () {
   var galleryItem = $('.gallery-item');
 
   galleryItem.each(function(item) {
@@ -90,6 +90,148 @@ jQuery(window).on('load', function() {
   setTimeout(() => {
     AOS.init();
 }, 120);
- })
- AOS.init();
+})
+$(function () {
+  var sidebarItem = $('.warning-card');
+  sidebarItem.each(function(item) {
+    $(this).attr('data-aos', "fade-right");
+    $(this).attr('data-aos-offset', "300");
+    $(this).attr('data-aos-easing', "ease-in-sine");
+  })
+  setTimeout(() => {
+    AOS.init();
+}, 120);
+
+})
+AOS.init();
+// Getting information of meetings with teacher
+import meetings from './teacher-meetings.json' assert {type: 'json'};
+
+const objMeetings = jQuery.parseJSON(JSON.stringify(meetings));
+var modalMeetings = $('#modal-meetings');
+var modalMeetingsContent = $('.modal-content');
+
+$(function() {
+  var meetingsList = $('#meetings');
+  var close = $('.close');
+  meetingsList.on('change', () => {
+    displayTeacherMeeting (modalMeetings, modalMeetingsContent);
+  })
+  
+  $(this).on('click', (event) => {
+    closeModal(event);
+  })
+  $.each(objMeetings, (key, values) => {
+    var option = $('<option>');
+    var optionText = values['наставник'], optionValue = values['наставник'];
+    meetingsList.append(new Option (optionText, optionValue));
+  })
+})
+
+function closeModal (e) {
+  if (e.target == modalMeetings[0] || $(e.target).hasClass('close')) {
+    modalMeetings.css('display', 'none');
+  }
+}
+
+function displayTeacherMeeting (modal, modalContent) {
+  modal.css('display', 'block');
+  var selectedTeacher = $('#meetings option:selected');
+  var meetingsTextToDisplay = ' је заказао информативне састанке за родитеље од ';
+  $.each(objMeetings, (key, values) => {
+    let arrOfProp = [];
+    for (let prop in values) {
+      arrOfProp.push(prop);
+    }
+    if (selectedTeacher.text().toLowerCase() == values['наставник'].toLowerCase()) {
+      if (arrOfProp.length > 1) {
+        return modalContent.html('<p>' + '<b>'+ values[arrOfProp[0]] + '</b>' + meetingsTextToDisplay + values[arrOfProp[1]] + " и " + values[arrOfProp[2]] + ' у ' + arrOfProp[1] + '</p>' +'<span class="close">x</span>');
+      } 
+      return modalContent.html('<p>' + '<b>'+ values[arrOfProp[0]] + '</b>' + meetingsTextToDisplay + 'по завршетку смјене' + '</p>' + '<span class="close">x</span>');
+    }
+  })
+}
+
+// Getting class schedule
+import data from './class-schedule.json' assert { type: 'json' };
+
+const classOrder = JSON.parse(JSON.stringify(data));
+$(function() {
+  var schoolClasses = $('#school-class');
+  var schoolDepartments = $('#departments');
+  var classesArr = ['II', 'III', 'IV', "V", 'VI', 'VII', 'VIII', 'IX'];
+  var departmentsArr = [1, 2, 3, 4, 5];
+  var selectedclass, selectedDepartment;
+  settingClassOption (classesArr, schoolClasses);
+  settingClassOption (departmentsArr, schoolDepartments);
+  schoolClasses.on('change', () => {
+    selectedclass = $('#school-class option:selected');
+  })
+  schoolDepartments.on('change', () => {
+    selectedDepartment = $('#departments option:selected');
+  })
+  var showSchedule = $('#show-schedule');
+  showSchedule.on('click', () => { 
+    $('.modal-content').html('<span class="close">x</span>');
+    $('.modal-content').append(classSchedule (selectedclass, selectedDepartment));
+  })
+})
+
+function settingClassOption (arr, selectElement) {
+  $.each(arr, (key, value) => {
+    var option = $('<option>');
+    var optionText = value, optionValue = value;
+    option.append(new Option(optionText, optionValue));
+    selectElement.append(option);
+  })
+}
+
+function classSchedule (classes, dep) {
+  modalMeetings.css('display', 'block');
+  var table = $('<table>');
+  var caption = $('<caption>');
+  var tHead = $('<thead>');
+  var tBody = $('<tbody>');
+  caption.append('Распоред часова');
+  table.append(caption);
+
+  $.each(classOrder, (key, value) => {
+    if (classes.text().toLowerCase() + dep.text().toLowerCase() == Object.values(key).join('').toLowerCase()) {
+      var numOfColumn = Object.keys(value).length;
+      var numOfRow = Object.values(value).length;
+      var trHeader = $('<tr>');
+      for (var i = 0; i < numOfColumn; i++) {
+        var th = $('<th>').attr('scope', 'col');
+        if (Object.keys(value[0])[i] != 'Column1') {
+          th.append(Object.keys(value[0])[i]);
+        } else {
+          th.append('');
+        }
+        trHeader.append(th);
+      }
+      tHead.append(trHeader);
+      table.append(tHead);
+      $.each(value, (prop, propValue) => {
+        var tr = $('<tr>');
+        for (var j = 0; j < numOfRow; j++) {                        
+          var td = $('<td>').attr('data-label', Object.keys(value[0])[j]);
+          if (Object.values(propValue)[j] != undefined) {
+            td.append(Object.values(propValue)[j]);
+          } else {
+            td.append('');
+          }
+          tr.append(td);  
+          tBody.append(tr);             
+          table.append(tBody);           
+        }
+      })
+
+    } 
+  })
+
+  return table;
+}
+
+
+
 

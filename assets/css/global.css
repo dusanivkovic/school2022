@@ -1,0 +1,92 @@
+/**************
+GLOBAL
+**************/
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap");
+/**************
+GLOBAL
+**************/
+/*primary color*/
+/*neutral*/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: hsl(233, 8%, 62%);
+}
+@media only screen and (max-width: 520px) {
+  body {
+    font-size: 90%;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: hsl(231, 13%, 11%);
+  margin: 16px 0;
+}
+
+p {
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  color: hsl(231, 13%, 11%);
+  transition: 0.4s ease;
+}
+
+a:hover {
+  color: hsl(192, 70%, 51%);
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 525px) {
+  .container {
+    width: 98%;
+    padding: 0 0.3em 0 0.3em;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 10px;
+  color: hsl(233, 8%, 62%);
+  border: 1px solid hsl(233, 8%, 62%);
+}
+
+input[type=submit] {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 8px 10px;
+  border-radius: 15px;
+  border: 1px solid hsl(192, 70%, 51%);
+  background-image: linear-gradient(290deg, #31d35c, #2bb7da);
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-image: linear-gradient(110deg, #31d35c, #2bb7da);
+}

@@ -92,6 +92,7 @@ nav{
                 overflow-y: auto;
                 top: 100%;
                 left: -6%;
+                @media only screen and (max-width:768px) {left: -3%;}
                 width: 111%;
                 z-index: 5;
                 flex-direction: column;
@@ -234,7 +235,7 @@ header{
                 color: $white;
                 font-weight: 700;
                 &:hover{
-                    color: $darkBlue;
+                    color: $lightGrayishBlue;
                 }
             }
         }
@@ -250,9 +251,6 @@ header{
         color: $veryLightGray;
         font-size: 2em;
         font-weight: 700;
-        // @media only screen and (max-width:625px){
-        //     font-size: 1.8rem;
-        // }
     }
 }
 /***************
@@ -260,18 +258,23 @@ board
 ***************/
 .board{
     @include flex(center, center, row, wrap);
-    margin: -1.2em auto;
+    margin: -4em auto 0;
     .role-board{
         @include flex(center, space-around, row, wrap);
         flex:0 0 92%;
+        row-gap: 10px;
+        background: rgba($lightGrayishBlue, .7);
+        padding: 1em;
+        z-index: 5;
+        border-radius: 30px;
         @media only screen and (max-width:650px){
             row-gap: 5px;
         }
-        div{
+        & > div{
             @include flex(center, space-around, row, wrap);
             background: $white;
             flex: 0 0 30%;
-            padding: 1em 0 1em .5em;
+            padding: 1em .5em 1em .5em;
             box-shadow: 0px 7px 12px -7px $darkBlue;
             z-index: 1;
             transition: $transition;
@@ -282,14 +285,22 @@ board
             @media only screen and (max-width:650px){
                 flex: 0 0 100%;
             }
+            h3 {color: $brightCyan; text-align: center;}
+        }
+        & > div > div{
+            display: flex;
+            @include flex (center, space-evenly, row, wrap);
+            column-gap: 8px;
+            row-gap: 5px;
+            width: 100%;
         }
         i{
-            font-size: 1.4rem!important;
+            font-size: 2rem!important;
             margin-right: 5px;
             color: $brightCyan;
             transition: $transition;
             &:hover{
-                color: limeGreen;
+                color: $limeGreen;
             }
         }
         a{
@@ -299,7 +310,7 @@ board
             transition: $transition;
             color: $brightCyan!important;
             &:hover{
-                color: limeGreen!important;
+                color: $limeGreen!important;
             }
             @media only screen and ( min-width:768px){
                 font-size: 0.8rem;
@@ -307,6 +318,35 @@ board
             @media only screen and ( max-width:650px){
                 font-size: 1.3rem;
             }
+        }
+        a::after {
+            content:""; 
+            background: $lightGrayishBlue; 
+            position: absolute; 
+            margin: 0 1em;
+            height: 1.8rem; 
+            width: 1.5px;
+
+        }            
+        a:last-child::after {display: none;}
+        label {
+            font-weight: 700;
+            color: $brightCyan;
+            margin-bottom: 5px;
+        }
+        .box {
+            padding: 5px;
+            border: 1px solid #999;
+            font-size: .8rem;
+            color: $darkBlue;
+            background-color: $lightGrayishBlue;
+            border-radius: 5px;
+            box-shadow: 4px 4px $grayishBlue;
+        }
+        button {
+            @include btn(linear-gradient(290deg, $lightGrayishBlue, $lightGrayishBlue), linear-gradient(110deg, #31d35c, #2bb7da));
+            border: 1px solid $brightCyan;
+            color: $darkBlue;
         }
     }
 }
@@ -719,9 +759,21 @@ page.php
 ***************/
 .container{
     .main{
-        iframe{
-            width: 100%;
-            height: 450px;
+        .mape {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            > div {
+                width: 47%;
+                @media only screen and (max-width:525px){
+                    flex: 0 0 100%;
+                }
+            }
+            iframe{
+                width: 100%;
+                height: 450px;
+            }
         }
         .gallery-columns-3{
             @include flex(flex-start, space-between, row, wrap);
@@ -787,5 +839,115 @@ post pagination
         }
     }
 }
+/***************
+modal
+***************/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba($grayishBlue, .7); /* Black w/ opacity */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        overflow-x: auto;
+        .close {
+            color: #aaaaaa;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            &:hover, &:active {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+    table {
+        border: 1px solid $white;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        table-layout: fixed;
+        @media screen and (max-width: 600px) {border: 0;}
+        caption {
+            font-size: 1.5em;
+            margin: .5em 0 .75em;
+            @media screen and (max-width: 600px) {font-size: 1.3rem;}
+        }
+        thead {
+            @media screen and (max-width: 600px) {
+                border: none;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+        }
+        tr {
+            background-color: $white;
+            border: 1px solid #ddd;
+            padding: .35em;
+            @media screen and (max-width: 600px) {
+                border-bottom: 3px solid #ddd;
+                display: block;
+                margin-bottom: .625em;
+            }
+        }
+        tr:nth-child(even){background-color: #f2f2f2}
+        th, td {
+            text-align: left;
+            vertical-align: top;
+            padding: .625em;
+        }
+        th {
+            background-color: rgba($limeGreen, .7);
+            color: white;
+            font-size: .85em;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+        td {
+            @media screen and (max-width: 600px){
+                border-bottom: 1px solid #ddd;
+                display: block;
+                font-size: .8em;
+                text-align: right;
+            }
+            &::before {
+                @media screen and (max-width: 600px) {
+                     /*
+                    * aria-label has no advantage, it won't be read inside a table
+                    content: attr(aria-label);
+                    */
+                    content: attr(data-label);
+                    float: left;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }
+            &:last-child{
+                @media screen and (max-width: 600px) {border-bottom: 0;}
+            }
+        }
+    }
+}
+
 
 
