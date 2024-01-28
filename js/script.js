@@ -113,7 +113,6 @@ var modalMeetingsContent = $('.modal-content');
 
 $(function() {
   var meetingsList = $('#meetings');
-  var close = $('.close');
   meetingsList.on('change', () => {
     displayTeacherMeeting (modalMeetings, modalMeetingsContent);
   })
@@ -122,7 +121,6 @@ $(function() {
     closeModal(event);
   })
   $.each(objMeetings, (key, values) => {
-    var option = $('<option>');
     var optionText = values['наставник'], optionValue = values['наставник'];
     meetingsList.append(new Option (optionText, optionValue));
   })
@@ -152,6 +150,8 @@ function displayTeacherMeeting (modal, modalContent) {
   })
 }
 
+var classesArr = ['II', 'III', 'IV', "V", 'VI', 'VII', 'VIII', 'IX'];
+var departmentsArr = [1, 2, 3, 4, 5];
 // Getting class schedule
 import data from './class-schedule.json' assert { type: 'json' };
 
@@ -159,8 +159,7 @@ const classOrder = JSON.parse(JSON.stringify(data));
 $(function() {
   var schoolClasses = $('#school-class');
   var schoolDepartments = $('#departments');
-  var classesArr = ['II', 'III', 'IV', "V", 'VI', 'VII', 'VIII', 'IX'];
-  var departmentsArr = [1, 2, 3, 4, 5];
+  var showSchedule = $('#show-schedule');
   var selectedclass, selectedDepartment;
   settingClassOption (classesArr, schoolClasses);
   settingClassOption (departmentsArr, schoolDepartments);
@@ -170,7 +169,7 @@ $(function() {
   schoolDepartments.on('change', () => {
     selectedDepartment = $('#departments option:selected');
   })
-  var showSchedule = $('#show-schedule');
+
   showSchedule.on('click', () => { 
     $('.modal-content').html('<span class="close">x</span>');
     $('.modal-content').append(classSchedule (selectedclass, selectedDepartment));
@@ -179,10 +178,8 @@ $(function() {
 
 function settingClassOption (arr, selectElement) {
   $.each(arr, (key, value) => {
-    var option = $('<option>');
     var optionText = value, optionValue = value;
-    option.append(new Option(optionText, optionValue));
-    selectElement.append(option);
+    selectElement.append(new Option(optionText, optionValue));
   })
 }
 
@@ -232,6 +229,58 @@ function classSchedule (classes, dep) {
   return table;
 }
 
+// Getting test schedule
+import schedule from './test-schedule.json' assert {type: 'json'};
+const testSchedule = JSON.parse(JSON.stringify(schedule));
+$(function ()
+{
+  var schoolClasses = $('#school-class-test');
+  var schoolDepartments = $('#departments-test');
+  var btnScheduleTest = $('#show-schedule-test');
+  var selectedDepartment, selectedclass;
+
+  settingClassOption (classesArr, schoolClasses);
+  settingClassOption (departmentsArr, schoolDepartments);
+
+  schoolClasses.on('change', () => {
+    selectedclass = $('#school-class-test option:selected').text();
+  })
+  schoolDepartments.on('change', () => {
+    selectedDepartment = $('#departments-test option:selected').text();
+  })
+
+  btnScheduleTest.on('click', () => {
+    var filteredData = testSchedule.filter((item) => {
+      var currentClass = item['razred'];
+      var depart = item['odjeljenje'];
+      return currentClass == selectedclass && (depart[0] == selectedDepartment || depart[1] == selectedDepartment || depart[2] == selectedDepartment || depart[3] == selectedDepartment || depart[4] == selectedDepartment);
+    });
+    displayTestSchedule (filteredData);
+  });
+})
+
+function displayTestSchedule (arr)
+{
+  modalMeetings.css('display', 'block');
+  modalMeetings.addClass('page');
+  modalMeetingsContent.html('<span class="close">x</span>');
+  var ul = $('<ul>');
+  if (arr.length > 0)
+  {
+  var liArray = $.map(arr, (value) => {
+    var day = parseInt([value['sedmica'].split('-')[0]]) + 4;
+    var month = [value['sedmica'].split('-')[1]];
+    var year = [value['sedmica'].split('-')[2]];
+    var date = `${day}-${month}-${year}`;
+    return `<li>${value['provjera']} из предмета <strong>${value['predmet']}</strong> у седмици од <strong>${value['sedmica']} до ${date}</li></strong>`;
+  });
+  ul.html(liArray.join(''));
+  }else
+  {
+    ul.html('<span>Нема писаних провјера за изабрано одјељење.</span>');
+  }
+  modalMeetingsContent.append(ul);
+}
 
 
 

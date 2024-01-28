@@ -416,11 +416,11 @@ board
 }
 .board .role-board {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
-  flex: 0 0 92%;
+  flex: 0 0 96%;
   row-gap: 10px;
   background: rgba(243, 244, 246, 0.7);
   padding: 1em;
@@ -439,7 +439,7 @@ board
   flex-direction: row;
   flex-wrap: wrap;
   background: hsl(0, 0%, 100%);
-  flex: 0 0 30%;
+  flex: 0 0 23%;
   padding: 1em 0.5em 1em 0.5em;
   box-shadow: 0px 7px 12px -7px hsl(231, 13%, 11%);
   z-index: 1;
@@ -452,6 +452,11 @@ board
 @media only screen and (max-width: 650px) {
   .board .role-board > div {
     flex: 0 0 100%;
+  }
+}
+@media only screen and (max-width: 996px) and (min-width: 651px) {
+  .board .role-board > div {
+    flex: 0 0 40%;
   }
 }
 .board .role-board > div h3 {

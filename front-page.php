@@ -12,6 +12,18 @@
             </div>
         </div>
         <div>
+            <h3><label for="school-class-test" id="test-schedule"><?php the_field('raspored-provjera')?></label></h3>
+            <div>
+                <select name="classes-test" id="school-class-test" class="box">
+                    <option value="choice-options"><?php the_field('izaberi-razred'); ?></option>
+                </select>
+                <select name="departments-school-test" id="departments-test" class="box">
+                    <option value="choice-options"><?php the_field('izaberi-odjeljenje'); ?></option>
+                </select>
+                <button id="show-schedule-test"><?php the_field('prikazi-raspored')?></button>
+            </div>
+        </div>
+        <div>
             <h3><label id="teachers-meetings" for="meetings"><?php the_field('raspored-info'); ?></label></h3>
             <select name="informative-meetings" id="meetings" class="box">
                 <option value="choice-options"><?php the_field('izaberi-opciju'); ?></option>

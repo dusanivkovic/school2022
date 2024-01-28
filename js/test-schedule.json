@@ -1,0 +1,35 @@
+[
+    {
+        "nastavnik": "Деспот Субић",
+        "predmet": "Дигитални свијет",
+        "sedmica": "18-03-2024",
+        "razred": "II",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "2"
+        ]
+    },
+    {
+        "nastavnik": "Душан ивковић",
+        "predmet": "Историја",
+        "sedmica": "04-03-2024",
+        "razred": "II",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "2"
+        ]
+    },
+    {
+        "nastavnik": "Милица",
+        "predmet": "Српски језик",
+        "sedmica": "22-04-2024",
+        "razred": "VI",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    }
+]
