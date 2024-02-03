@@ -1,34 +1,666 @@
 [
     {
-        "nastavnik": "Деспот Субић",
-        "predmet": "Дигитални свијет",
-        "sedmica": "18-03-2024",
-        "razred": "II",
-        "provjera": "Контролни",
-        "odjeljenje": [
-            "2"
-        ]
-    },
-    {
-        "nastavnik": "Душан ивковић",
-        "predmet": "Историја",
-        "sedmica": "04-03-2024",
-        "razred": "II",
-        "provjera": "Контролни",
-        "odjeljenje": [
-            "2"
-        ]
-    },
-    {
-        "nastavnik": "Милица",
-        "predmet": "Српски језик",
-        "sedmica": "22-04-2024",
-        "razred": "VI",
+        "nastavnik": "Brankica Aleksić",
+        "predmet": "Математика",
+        "sedmica": "12-02-2024",
+        "razred": "VII",
         "provjera": "Писмени",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Brankica Aleksić",
+        "predmet": "Математика",
+        "sedmica": "25-03-2024",
+        "razred": "VII",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Brankica Aleksić",
+        "predmet": "Математика",
+        "sedmica": "22-04-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Brankica Aleksić",
+        "predmet": "Математика",
+        "sedmica": "27-05-2024",
+        "razred": "VII",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Branka Grmuša",
+        "predmet": "Математика",
+        "sedmica": "12-02-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1"
+        ]
+    },
+    {
+        "nastavnik": "Branka Grmuša",
+        "predmet": "Математика",
+        "sedmica": "12-02-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
         "odjeljenje": [
             "2",
             "3",
             "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Branka Grmuša",
+        "predmet": "Математика",
+        "sedmica": "25-03-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Branka Grmuša",
+        "predmet": "Математика",
+        "sedmica": "20-05-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Branka Grmuša",
+        "predmet": "Математика",
+        "sedmica": "03-06-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Математика",
+        "sedmica": "19-02-2024",
+        "razred": "VIII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Математика",
+        "sedmica": "11-03-2024",
+        "razred": "VIII",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Математика",
+        "sedmica": "15-04-2024",
+        "razred": "VIII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Математика",
+        "sedmica": "20-05-2024",
+        "razred": "VIII",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Математика",
+        "sedmica": "05-02-2024",
+        "razred": "IX",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Математика",
+        "sedmica": "11-03-2024",
+        "razred": "IX",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Математика",
+        "sedmica": "22-04-2024",
+        "razred": "IX",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Математика",
+        "sedmica": "20-05-2024",
+        "razred": "IX",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Физика",
+        "sedmica": "26-02-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1"
+        ]
+    },
+    {
+        "nastavnik": "Vesna Kovačević",
+        "predmet": "Физика",
+        "sedmica": "27-05-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1"
+        ]
+    },
+    {
+        "nastavnik": "Dijana Kvrgic",
+        "predmet": "Математика",
+        "sedmica": "12-02-2024",
+        "razred": "IX",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Dijana Kvrgic",
+        "predmet": "Математика",
+        "sedmica": "11-03-2024",
+        "razred": "IX",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Dijana Kvrgic",
+        "predmet": "Математика",
+        "sedmica": "22-04-2024",
+        "razred": "IX",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Dijana Kvrgic",
+        "predmet": "Математика",
+        "sedmica": "20-05-2024",
+        "razred": "IX",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Dijana Kvrgic",
+        "predmet": "Физика",
+        "sedmica": "26-02-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "2",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Dijana Kvrgic",
+        "predmet": "Физика",
+        "sedmica": "27-05-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "2",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Aco Račić",
+        "predmet": "Биологија",
+        "sedmica": "19-02-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "2"
+        ]
+    },
+    {
+        "nastavnik": "Aco Račić",
+        "predmet": "Биологија",
+        "sedmica": "19-02-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "2"
+        ]
+    },
+    {
+        "nastavnik": "Aco Račić",
+        "predmet": "Биологија",
+        "sedmica": "08-04-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "2"
+        ]
+    },
+    {
+        "nastavnik": "Aco Račić",
+        "predmet": "Биологија",
+        "sedmica": "04-03-2024",
+        "razred": "VIII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Aco Račić",
+        "predmet": "Биологија",
+        "sedmica": "13-05-2024",
+        "razred": "VIII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Aco Račić",
+        "predmet": "Биологија",
+        "sedmica": "11-03-2024",
+        "razred": "IX",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Željka Ilić",
+        "predmet": "Хемија",
+        "sedmica": "29-03-2024",
+        "razred": "VIII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Željka Ilić",
+        "predmet": "Хемија",
+        "sedmica": "10-05-2024",
+        "razred": "VIII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Željka Ilić",
+        "predmet": "Хемија",
+        "sedmica": "11-03-2024",
+        "razred": "IX",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Željka Ilić",
+        "predmet": "Хемија",
+        "sedmica": "17-04-2024",
+        "razred": "IX",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Mirjana Zelenika",
+        "predmet": "Историја",
+        "sedmica": "11-03-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Mirjana Zelenika",
+        "predmet": "Географија",
+        "sedmica": "22-04-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1"
+        ]
+    },
+    {
+        "nastavnik": "Mirjana Zelenika",
+        "predmet": "Географија",
+        "sedmica": "15-04-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "2"
+        ]
+    },
+    {
+        "nastavnik": "Mirjana Zelenika",
+        "predmet": "Географија",
+        "sedmica": "22-04-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "3"
+        ]
+    },
+    {
+        "nastavnik": "Svjetlana Andjelic",
+        "predmet": "Историја",
+        "sedmica": "25-03-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "3"
+        ]
+    },
+    {
+        "nastavnik": "Svjetlana Andjelic",
+        "predmet": "Историја",
+        "sedmica": "18-03-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "3"
+        ]
+    },
+    {
+        "nastavnik": "Svjetlana Andjelic",
+        "predmet": "Географија",
+        "sedmica": "08-04-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Svjetlana Andjelic",
+        "predmet": "Географија",
+        "sedmica": "08-04-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Svjetlana Andjelic",
+        "predmet": "Историја",
+        "sedmica": "18-03-2024",
+        "razred": "VIII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Nikolina Mitrović",
+        "predmet": "Енглески језик",
+        "sedmica": "14-04-2024",
+        "razred": "IX",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "3"
+        ]
+    },
+    {
+        "nastavnik": "Nikolina Mitrović",
+        "predmet": "Енглески језик",
+        "sedmica": "24-03-2024",
+        "razred": "VI",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Nikolina Mitrović",
+        "predmet": "Енглески језик",
+        "sedmica": "21-04-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Nikolina Mitrović",
+        "predmet": "Енглески језик",
+        "sedmica": "24-03-2024",
+        "razred": "VII",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Nikolina Mitrović",
+        "predmet": "Енглески језик",
+        "sedmica": "21-04-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Nikolina Mitrović",
+        "predmet": "Енглески језик",
+        "sedmica": "21-04-2024",
+        "razred": "VII",
+        "provjera": "Писмени",
+        "odjeljenje": [
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Nikolina Mitrović",
+        "predmet": "Енглески језик",
+        "sedmica": "21-04-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Весна Ћирић",
+        "predmet": "Биологија",
+        "sedmica": "19-02-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Весна Ћирић",
+        "predmet": "Биологија",
+        "sedmica": "07-04-2024",
+        "razred": "VI",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Весна Ћирић",
+        "predmet": "Биологија",
+        "sedmica": "05-05-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "nastavnik": "Весна Ћирић",
+        "predmet": "Биологија",
+        "sedmica": "21-04-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
+            "5"
+        ]
+    },
+    {
+        "nastavnik": "Весна Ћирић",
+        "predmet": "Биологија",
+        "sedmica": "21-04-2024",
+        "razred": "VII",
+        "provjera": "Контролни",
+        "odjeljenje": [
             "5"
         ]
     }

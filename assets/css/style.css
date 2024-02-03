@@ -979,9 +979,13 @@ single.php
 .bulletin-text .feature, .page .feature {
   border-left: 5px solid rgba(49, 211, 92, 0.5);
   padding-left: 30px;
+  margin: 0.7em 0;
 }
 .bulletin-text .wp-block-image, .page .wp-block-image {
   margin: 1em 0;
+}
+.bulletin-text > div, .page > div {
+  margin: 0.8em 0;
 }
 
 aside .latest-post .row {
