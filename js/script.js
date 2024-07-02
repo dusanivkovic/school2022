@@ -105,7 +105,7 @@ $(function () {
 })
 AOS.init();
 // Getting information of meetings with teacher
-import meetings from './teacher-meetings.json' assert {type: 'json'};
+import meetings from './teacher-meetings.json' with {type: 'json'};
 
 const objMeetings = jQuery.parseJSON(JSON.stringify(meetings));
 var modalMeetings = $('#modal-meetings');
@@ -153,7 +153,7 @@ function displayTeacherMeeting (modal, modalContent) {
 var classesArr = ['II', 'III', 'IV', "V", 'VI', 'VII', 'VIII', 'IX'];
 var departmentsArr = [1, 2, 3, 4, 5];
 // Getting class schedule
-import data from './class-schedule.json' assert { type: 'json' };
+import data from './class-schedule.json' with { type: 'json' };
 
 const classOrder = JSON.parse(JSON.stringify(data));
 $(function() {
@@ -230,7 +230,7 @@ function classSchedule (classes, dep) {
 }
 
 // Getting test schedule
-import schedule from './test-schedule.json' assert {type: 'json'};
+import schedule from './test-schedule.json' with {type: 'json'};
 const testSchedule = JSON.parse(JSON.stringify(schedule));
 $(function ()
 {
