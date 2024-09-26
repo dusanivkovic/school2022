@@ -105,7 +105,7 @@ $(function () {
 })
 AOS.init();
 // Getting information of meetings with teacher
-import meetings from './teacher-meetings.json' with {type: 'json'};
+import meetings from './meetings.json' with {type: 'json'};
 
 const objMeetings = jQuery.parseJSON(JSON.stringify(meetings));
 var modalMeetings = $('#modal-meetings');
@@ -121,7 +121,7 @@ $(function() {
     closeModal(event);
   })
   $.each(objMeetings, (key, values) => {
-    var optionText = values['наставник'], optionValue = values['наставник'];
+    var optionText = values['full_name'], optionValue = values['full_name'];
     meetingsList.append(new Option (optionText, optionValue));
   })
 })
@@ -132,20 +132,41 @@ function closeModal (e) {
   }
 }
 
+var requiredValues = ['II', 'III', 'IV', 'V'];
 function displayTeacherMeeting (modal, modalContent) {
   modal.css('display', 'block');
   var selectedTeacher = $('#meetings option:selected');
-  var meetingsTextToDisplay = ' је заказао информативне састанке за родитеље од ';
+  var meetingsTextToDisplay = ' је заказао информативне састанке за родитеље у ';
+  var meetingsTextToDisplayTwo = ' У другој смјени састанци се одржавају истим данима у времену  ';
   $.each(objMeetings, (key, values) => {
-    let arrOfProp = [];
-    for (let prop in values) {
-      arrOfProp.push(prop);
-    }
-    if (selectedTeacher.text().toLowerCase() == values['наставник'].toLowerCase()) {
-      if (arrOfProp.length > 1) {
-        return modalContent.html('<p>' + '<b>'+ values[arrOfProp[0]] + '</b>' + meetingsTextToDisplay + values[arrOfProp[1]] + " и " + values[arrOfProp[2]] + ' у ' + arrOfProp[1] + '</p>' +'<span class="close">x</span>');
+    if (selectedTeacher.text().toLowerCase() == values['full_name'].toLowerCase()) {
+      if (values['visit_termin']) {
+        var classOfTeacher = values['class_teacher'].slice(0, -1);
+        var containsClass = requiredValues.includes(classOfTeacher);
+        var firstReplacementTerminFirst = values['visit_termin'].split(',')[0];
+        var firstReplacementTerminSecond = values['visit_termin'].split(',')[1];
+
+        var hours = parseInt((firstReplacementTerminFirst.split(' ')[1]).split(':')[0]) + 5;
+        var minutes = parseInt((firstReplacementTerminFirst.split(' ')[1]).split(':')[1]);
+        minutes = containsClass ? minutes + 45 : minutes;
+        var hoursSecondTermin = parseInt((firstReplacementTerminSecond.split(' ')[2]).split(':')[0]) + 5;//index 2 because off string starting with space
+        var minutesSecondTermin = parseInt((firstReplacementTerminSecond.split(' ')[2]).split(':')[1]);
+        minutesSecondTermin = containsClass ? minutesSecondTermin + 45 : minutesSecondTermin;// Because of different in Replacement 12:30  13:15
+        var secondReplacementTerminFirst = Math.floor((hours * 60 + minutes) / 60);
+        var endSecondReplecementTerminFirst = minutes >= 15 ? `${secondReplacementTerminFirst + 1}:${(hours * 60 + minutes + 45) % 60}` : `${secondReplacementTerminFirst}:${(hours * 60 + minutes + 45) % 60}`;
+
+        var secondReplacementTerminSecond = Math.floor((hoursSecondTermin * 60 + minutesSecondTermin) / 60);
+        var endSecondReplecementTerminSecond = minutesSecondTermin >= 15 ? `${secondReplacementTerminSecond + 1}:${(hoursSecondTermin * 60 + minutesSecondTermin + 45) % 60}` : `${secondReplacementTerminSecond}:${(hoursSecondTermin * 60 + minutesSecondTermin + 45) % 60}`;
+
+        secondReplacementTerminFirst = `${secondReplacementTerminFirst}:${(hours * 60 + minutes) % 60}`;
+        secondReplacementTerminSecond = `${secondReplacementTerminSecond}:${(hoursSecondTermin * 60 + minutesSecondTermin) % 60}`;
+
+        return modalContent.html(
+          '<p>' + '<b>'+ values['full_name'] + '</b>' + meetingsTextToDisplay + firstReplacementTerminFirst + " и " + firstReplacementTerminSecond + '</p>' +
+          '<p>' + `${meetingsTextToDisplayTwo} ${secondReplacementTerminFirst} - ${endSecondReplecementTerminFirst} и ${secondReplacementTerminSecond} - ${endSecondReplecementTerminSecond}` +'</p>' +
+          '<span class="close">x</span>');
       } 
-      return modalContent.html('<p>' + '<b>'+ values[arrOfProp[0]] + '</b>' + meetingsTextToDisplay + 'по завршетку смјене' + '</p>' + '<span class="close">x</span>');
+      return modalContent.html('<p>' + '<b>'+ values['full_name'] + '</b>' + meetingsTextToDisplay + 'по завршетку смјене' + '</p>' + '<span class="close">x</span>');
     }
   })
 }
@@ -251,9 +272,9 @@ $(function ()
 
   btnScheduleTest.on('click', () => {
     var filteredData = testSchedule.filter((item) => {
-      var currentClass = item['razred'];
-      var depart = item['odjeljenje'];
-      return currentClass == selectedclass && (depart[0] == selectedDepartment || depart[1] == selectedDepartment || depart[2] == selectedDepartment || depart[3] == selectedDepartment || depart[4] == selectedDepartment);
+      var currentClass = item['class'];
+      var razred = selectedclass + selectedDepartment;
+      return currentClass == razred;
     });
     displayTestSchedule (filteredData);
   });
@@ -268,11 +289,12 @@ function displayTestSchedule (arr)
   if (arr.length > 0)
   {
   var liArray = $.map(arr, (value) => {
-    var day = parseInt([value['sedmica'].split('-')[0]]) + 4;
-    var month = [value['sedmica'].split('-')[1]];
-    var year = [value['sedmica'].split('-')[2]];
-    var date = `${day}-${month}-${year}`;
-    return `<li>${value['provjera']} из предмета <strong>${value['predmet']}</strong> у седмици од <strong>${value['sedmica']} до ${date}</li></strong>`;
+    var year = [value['termin'].split('-')[0]];
+    var month = [value['termin'].split('-')[1]];
+    var day = (parseInt([value['termin'].split('-')[2]]) + 4);
+    day = day <= 30 ? day : 30;
+    var date = `${day}. ${month}. ${year}.`;
+    return `<li>${value['test_type']} из предмета <strong>${value['subject']}</strong> у седмици од <strong>${[value['termin'].split('-')[2]]}. ${[value['termin'].split('-')[1]]}. до ${date}</li></strong>`;
   });
   ul.html(liArray.join(''));
   }else
